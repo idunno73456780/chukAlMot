@@ -1,0 +1,184 @@
+{
+  "source": "thesportsdb",
+  "warnings": [],
+  "analysis": {
+    "generated_at": "2026-06-30T23:47:37.025031+09:00",
+    "profile_timezone": "Asia/Seoul",
+    "scheduled_events": [
+      {
+        "id": "2388162",
+        "sport": "Baseball",
+        "league": "MLB",
+        "league_id": "4424",
+        "home_team": "Baltimore Orioles",
+        "away_team": "Chicago White Sox",
+        "teams": [
+          "Baltimore Orioles",
+          "Chicago White Sox"
+        ],
+        "players": [],
+        "national_teams": [],
+        "start_time_utc": "2026-06-30T22:35:00",
+        "estimated_duration_minutes": 120,
+        "venue": "Oriole Park at Camden Yards",
+        "status": "NS",
+        "score": null,
+        "stage": "15",
+        "importance_tags": [
+          "tracked_league"
+        ],
+        "broadcast": [
+          "MASN (United States)",
+          "MLB.tv (United States)"
+        ],
+        "external_url": "Chicago White Sox @ Baltimore Orioles",
+        "summary": "Baltimore Orioles vs Chicago White Sox",
+        "title": "Baltimore Orioles vs Chicago White Sox - MLB",
+        "local_start": "2026-07-01T07:35:00+09:00",
+        "local_end": "2026-07-01T09:35:00+09:00",
+        "local_date": "2026-07-01",
+        "local_time": "07:35",
+        "local_weekday": "수",
+        "display_time": "2026-07-01 (Wed) 07:35",
+        "interest_reasons": [],
+        "is_interest_event": false,
+        "importance": {
+          "score": 0,
+          "reasons": [
+            "일정 중요도 기본 점수"
+          ]
+        },
+        "viewing": {
+          "score": 31,
+          "bucket": "많이 무리해야 함",
+          "reasons": [
+            "캘린더상 직접 충돌이 없습니다."
+          ],
+          "cautions": [
+            "평일 업무시간과 겹칩니다."
+          ],
+          "conflicts": []
+        }
+      },
+      {
+        "id": "2491734",
+        "sport": "Soccer",
+        "league": "UEFA Champions League",
+        "league_id": "4480",
+        "home_team": "Lincoln Red Imps",
+        "away_team": "Inter Club d'Escaldes",
+        "teams": [
+          "Lincoln Red Imps",
+          "Inter Club d'Escaldes"
+        ],
+        "players": [],
+        "national_teams": [],
+        "start_time_utc": "2026-07-07T16:00:00",
+        "estimated_duration_minutes": 120,
+        "venue": "Europa Point Stadium",
+        "status": "NS",
+        "score": null,
+        "stage": "400",
+        "importance_tags": [
+          "champions_league",
+          "tracked_league"
+        ],
+        "broadcast": [],
+        "external_url": "Inter Club d'Escaldes @ Lincoln Red Imps",
+        "summary": "Lincoln Red Imps vs Inter Club d'Escaldes",
+        "title": "Lincoln Red Imps vs Inter Club d'Escaldes - UEFA Champions League",
+        "local_start": "2026-07-08T01:00:00+09:00",
+        "local_end": "2026-07-08T03:00:00+09:00",
+        "local_date": "2026-07-08",
+        "local_time": "01:00",
+        "local_weekday": "수",
+        "display_time": "2026-07-08 (Wed) 01:00",
+        "interest_reasons": [],
+        "is_interest_event": false,
+        "importance": {
+          "score": 38,
+          "reasons": [
+            "챔피언스리그급 경기"
+          ]
+        },
+        "viewing": {
+          "score": 30,
+          "bucket": "많이 무리해야 함",
+          "reasons": [
+            "캘린더상 직접 충돌이 없습니다."
+          ],
+          "cautions": [
+            "늦은 밤 또는 새벽 경기입니다.",
+            "예상 수면 시간이 4.5시간 정도로 짧습니다."
+          ],
+          "conflicts": []
+        }
+      }
+    ],
+    "completed_events": [
+      {
+        "id": "2388150",
+        "sport": "Baseball",
+        "league": "MLB",
+        "league_id": "4424",
+        "home_team": "Arizona Diamondbacks",
+        "away_team": "San Francisco Giants",
+        "teams": [
+          "Arizona Diamondbacks",
+          "San Francisco Giants"
+        ],
+        "players": [],
+        "national_teams": [],
+        "start_time_utc": "2026-06-30T01:40:00",
+        "estimated_duration_minutes": 120,
+        "venue": "Chase Field",
+        "status": "completed",
+        "score": {
+          "home": "5",
+          "away": "4"
+        },
+        "stage": "15",
+        "importance_tags": [],
+        "broadcast": [
+          "MLB Network (United States)",
+          "Viaplay IS (Iceland)"
+        ],
+        "external_url": "San Francisco Giants @ Arizona Diamondbacks",
+        "summary": "Arizona Diamondbacks vs San Francisco Giants",
+        "title": "Arizona Diamondbacks vs San Francisco Giants - MLB",
+        "local_start": "2026-06-30T10:40:00+09:00",
+        "local_end": "2026-06-30T12:40:00+09:00",
+        "local_date": "2026-06-30",
+        "local_time": "10:40",
+        "local_weekday": "화",
+        "display_time": "2026-06-30 (Tue) 10:40",
+        "interest_reasons": [],
+        "is_interest_event": false,
+        "importance": {
+          "score": 0,
+          "reasons": [
+            "일정 중요도 기본 점수"
+          ]
+        }
+      }
+    ],
+    "calendar_candidates": [],
+    "important_unfollowed": [],
+    "viewing_groups": {
+      "관람 가능성 높음": [],
+      "약간 무리하면 가능": [],
+      "많이 무리해야 함": []
+    },
+    "summary": {
+      "scheduled_count": 2,
+      "completed_count": 1,
+      "calendar_candidate_count": 0,
+      "important_unfollowed_count": 0
+    }
+  },
+  "standings": [],
+  "brackets": [],
+  "calendar_sync": [],
+  "viewing_email": "# 이번 주 관람 가능 경기 안내 - \n\n기준 시간대: Asia/Seoul\n\n## 관람 가능성 높음\n- 해당 경기 없음\n\n## 약간 무리하면 가능\n- 해당 경기 없음\n\n## 많이 무리해야 함\n- 해당 경기 없음\n",
+  "newsletter": "# MatchMate Weekly Brief for MatchMate User\n\n생성 시각: 2026-06-30T23:47:37.025031+09:00\n\n## 지난주 관심 경기 결과\n- 지난주 관심 경기 결과가 없습니다.\n\n## 관심 팀/대회 순위표\n순위표 데이터가 없습니다.\n\n## 토너먼트 대진표 현황\n토너먼트 대진표 데이터가 없습니다.\n\n## 이번 주 관심 경기\n- 이번 주 관심 경기 일정이 없습니다.\n\n## 관심 밖이지만 중요한 경기 추천\n- 이번 주에는 별도 추천할 주요 경기가 없습니다.\n"
+}

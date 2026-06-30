@@ -1,0 +1,51 @@
+{
+  "teams": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Chelsea",
+    "Manchester City",
+    "Real Madrid",
+    "FC Barcelona",
+    "Paris Saint-Germain",
+    "Bayern Munich",
+    "Liverpool",
+    "Manchester United",
+    "LG Twins",
+    "Doosan Bears",
+    "KIA Tigers",
+    "Samsung Lions",
+    "Kiwoom Heroes",
+    "Los Angeles Dodgers",
+    "New York Yankees",
+    "Boston Celtics",
+    "Denver Nuggets",
+    "Los Angeles Lakers",
+    "Golden State Warriors"
+  ],
+  "players": [
+    "Son Heung-min",
+    "Shohei Ohtani",
+    "Aaron Judge",
+    "Lionel Messi",
+    "Kylian Mbappe",
+    "Erling Haaland",
+    "Lee Kang-in",
+    "Kim Min-jae",
+    "Stephen Curry",
+    "Nikola Jokic"
+  ],
+  "national_teams": [
+    "Korea Republic",
+    "대한민국",
+    "Japan",
+    "United States",
+    "Brazil",
+    "France",
+    "England",
+    "Spain",
+    "Argentina",
+    "Germany",
+    "Portugal",
+    "Netherlands"
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "locations": [
+    {
+      "region": "서울, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["서울", "수도권", "대한민국", "한국", "seoul", "korea", "south korea", "kst"]
+    },
+    {
+      "region": "부산, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["부산", "대한민국", "한국", "busan", "pusan", "korea", "kst"]
+    },
+    {
+      "region": "대구, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["대구", "대한민국", "한국", "daegu", "korea", "kst"]
+    },
+    {
+      "region": "인천, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["인천", "대한민국", "한국", "incheon", "korea", "kst"]
+    },
+    {
+      "region": "광주, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["광주", "대한민국", "한국", "gwangju", "korea", "kst"]
+    },
+    {
+      "region": "대전, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["대전", "대한민국", "한국", "daejeon", "korea", "kst"]
+    },
+    {
+      "region": "울산, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["울산", "대한민국", "한국", "ulsan", "korea", "kst"]
+    },
+    {
+      "region": "제주, 대한민국",
+      "country": "대한민국",
+      "timezone": "Asia/Seoul",
+      "keywords": ["제주", "제주도", "대한민국", "한국", "jeju", "korea", "kst"]
+    },
+    {
+      "region": "도쿄, 일본",
+      "country": "일본",
+      "timezone": "Asia/Tokyo",
+      "keywords": ["도쿄", "일본", "tokyo", "japan", "jst"]
+    },
+    {
+      "region": "오사카, 일본",
+      "country": "일본",
+      "timezone": "Asia/Tokyo",
+      "keywords": ["오사카", "일본", "osaka", "japan", "jst"]
+    },
+    {
+      "region": "상하이, 중국",
+      "country": "중국",
+      "timezone": "Asia/Shanghai",
+      "keywords": ["상하이", "중국", "shanghai", "china", "cst"]
+    },
+    {
+      "region": "베이징, 중국",
+      "country": "중국",
+      "timezone": "Asia/Shanghai",
+      "keywords": ["베이징", "북경", "중국", "beijing", "china", "cst"]
+    },
+    {
+      "region": "타이베이, 대만",
+      "country": "대만",
+      "timezone": "Asia/Taipei",
+      "keywords": ["타이베이", "대만", "taipei", "taiwan"]
+    },
+    {
+      "region": "홍콩",
+      "country": "홍콩",
+      "timezone": "Asia/Hong_Kong",
+      "keywords": ["홍콩", "hong kong", "hongkong", "hkt"]
+    },
+    {
+      "region": "싱가포르",
+      "country": "싱가포르",
+      "timezone": "Asia/Singapore",
+      "keywords": ["싱가포르", "singapore", "sgt"]
+    },
+    {
+      "region": "방콕, 태국",
+      "country": "태국",
+      "timezone": "Asia/Bangkok",
+      "keywords": ["방콕", "태국", "bangkok", "thailand", "ict"]
+    },
+    {
+      "region": "하노이, 베트남",
+      "country": "베트남",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "keywords": ["하노이", "베트남", "hanoi", "vietnam", "ict"]
+    },
+    {
+      "region": "호치민, 베트남",
+      "country": "베트남",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "keywords": ["호치민", "베트남", "ho chi minh", "saigon", "vietnam", "ict"]
+    },
+    {
+      "region": "마닐라, 필리핀",
+      "country": "필리핀",
+      "timezone": "Asia/Manila",
+      "keywords": ["마닐라", "필리핀", "manila", "philippines", "pht"]
+    },
+    {
+      "region": "자카르타, 인도네시아",
+      "country": "인도네시아",
+      "timezone": "Asia/Jakarta",
+      "keywords": ["자카르타", "인도네시아", "jakarta", "indonesia", "wib"]
+    },
+    {
+      "region": "시드니, 호주",
+      "country": "호주",
+      "timezone": "Australia/Sydney",
+      "keywords": ["시드니", "호주", "sydney", "australia", "aest", "aedt"]
+    },
+    {
+      "region": "멜버른, 호주",
+      "country": "호주",
+      "timezone": "Australia/Melbourne",
+      "keywords": ["멜버른", "호주", "melbourne", "australia", "aest", "aedt"]
+    },
+    {
+      "region": "오클랜드, 뉴질랜드",
+      "country": "뉴질랜드",
+      "timezone": "Pacific/Auckland",
+      "keywords": ["오클랜드", "뉴질랜드", "auckland", "new zealand", "nzst", "nzdt"]
+    },
+    {
+      "region": "런던, 영국",
+      "country": "영국",
+      "timezone": "Europe/London",
+      "keywords": ["런던", "영국", "london", "uk", "united kingdom", "gmt", "bst"]
+    },
+    {
+      "region": "파리, 프랑스",
+      "country": "프랑스",
+      "timezone": "Europe/Paris",
+      "keywords": ["파리", "프랑스", "paris", "france", "cet", "cest"]
+    },
+    {
+      "region": "베를린, 독일",
+      "country": "독일",
+      "timezone": "Europe/Berlin",
+      "keywords": ["베를린", "독일", "berlin", "germany", "cet", "cest"]
+    },
+    {
+      "region": "마드리드, 스페인",
+      "country": "스페인",
+      "timezone": "Europe/Madrid",
+      "keywords": ["마드리드", "스페인", "madrid", "spain", "cet", "cest"]
+    },
+    {
+      "region": "로마, 이탈리아",
+      "country": "이탈리아",
+      "timezone": "Europe/Rome",
+      "keywords": ["로마", "이탈리아", "rome", "italy", "cet", "cest"]
+    },
+    {
+      "region": "암스테르담, 네덜란드",
+      "country": "네덜란드",
+      "timezone": "Europe/Amsterdam",
+      "keywords": ["암스테르담", "네덜란드", "amsterdam", "netherlands", "cet", "cest"]
+    },
+    {
+      "region": "이스탄불, 튀르키예",
+      "country": "튀르키예",
+      "timezone": "Europe/Istanbul",
+      "keywords": ["이스탄불", "튀르키예", "터키", "istanbul", "turkiye", "turkey"]
+    },
+    {
+      "region": "두바이, 아랍에미리트",
+      "country": "아랍에미리트",
+      "timezone": "Asia/Dubai",
+      "keywords": ["두바이", "아랍에미리트", "dubai", "uae", "gst"]
+    },
+    {
+      "region": "뉴욕, 미국",
+      "country": "미국",
+      "timezone": "America/New_York",
+      "keywords": ["뉴욕", "미국", "new york", "nyc", "usa", "united states", "est", "edt"]
+    },
+    {
+      "region": "보스턴, 미국",
+      "country": "미국",
+      "timezone": "America/New_York",
+      "keywords": ["보스턴", "미국", "boston", "usa", "est", "edt"]
+    },
+    {
+      "region": "워싱턴 D.C., 미국",
+      "country": "미국",
+      "timezone": "America/New_York",
+      "keywords": ["워싱턴", "미국", "washington", "washington dc", "usa", "est", "edt"]
+    },
+    {
+      "region": "시카고, 미국",
+      "country": "미국",
+      "timezone": "America/Chicago",
+      "keywords": ["시카고", "미국", "chicago", "usa", "cst", "cdt"]
+    },
+    {
+      "region": "댈러스, 미국",
+      "country": "미국",
+      "timezone": "America/Chicago",
+      "keywords": ["댈러스", "달라스", "미국", "dallas", "usa", "cst", "cdt"]
+    },
+    {
+      "region": "덴버, 미국",
+      "country": "미국",
+      "timezone": "America/Denver",
+      "keywords": ["덴버", "미국", "denver", "usa", "mst", "mdt"]
+    },
+    {
+      "region": "로스앤젤레스, 미국",
+      "country": "미국",
+      "timezone": "America/Los_Angeles",
+      "keywords": ["로스앤젤레스", "엘에이", "미국", "los angeles", "la", "usa", "pst", "pdt"]
+    },
+    {
+      "region": "샌프란시스코, 미국",
+      "country": "미국",
+      "timezone": "America/Los_Angeles",
+      "keywords": ["샌프란시스코", "미국", "san francisco", "sf", "usa", "pst", "pdt"]
+    },
+    {
+      "region": "시애틀, 미국",
+      "country": "미국",
+      "timezone": "America/Los_Angeles",
+      "keywords": ["시애틀", "미국", "seattle", "usa", "pst", "pdt"]
+    },
+    {
+      "region": "토론토, 캐나다",
+      "country": "캐나다",
+      "timezone": "America/Toronto",
+      "keywords": ["토론토", "캐나다", "toronto", "canada", "est", "edt"]
+    },
+    {
+      "region": "밴쿠버, 캐나다",
+      "country": "캐나다",
+      "timezone": "America/Vancouver",
+      "keywords": ["밴쿠버", "캐나다", "vancouver", "canada", "pst", "pdt"]
+    },
+    {
+      "region": "멕시코시티, 멕시코",
+      "country": "멕시코",
+      "timezone": "America/Mexico_City",
+      "keywords": ["멕시코시티", "멕시코", "mexico city", "mexico", "cst"]
+    },
+    {
+      "region": "상파울루, 브라질",
+      "country": "브라질",
+      "timezone": "America/Sao_Paulo",
+      "keywords": ["상파울루", "브라질", "sao paulo", "brazil", "brt"]
+    },
+    {
+      "region": "부에노스아이레스, 아르헨티나",
+      "country": "아르헨티나",
+      "timezone": "America/Argentina/Buenos_Aires",
+      "keywords": ["부에노스아이레스", "아르헨티나", "buenos aires", "argentina", "art"]
+    }
+  ]
+}

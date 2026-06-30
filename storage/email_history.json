@@ -1,0 +1,19 @@
+[
+  {
+    "type": "manual_integration_test",
+    "sent_at": "2026-06-30T23:22:21.718717+09:00",
+    "to_email": "chokh310@gmail.com",
+    "status": "sent",
+    "message": "Gmail sent to chokh310@gmail.com.",
+    "calendar_status": "created",
+    "calendar_mode": "google_oauth_calendar",
+    "calendar_url": "https://www.google.com/calendar/event?eid=NThuc29sOXZ1N2Y1ZDA1cjdsM2VtOTdqYjQgMGE0MGU5MzU4NjU0ODI3M2Q0OGJkYTkwZWNmYjkxOGRjZDk0YmQyNzMzOTI4MGViODhkMjY0ZmU5ODZmNWQ5NUBn",
+    "google_event_id": "58nsol9vu7f5d05r7l3em97jb4"
+  },
+  {
+    "type": "scheduled_weekly_newsletter",
+    "status": "sent",
+    "message": "Gmail sent to chokh310@gmail.com.",
+    "preview_path": null
+  }
+]

@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --border: rgba(49, 51, 63, 0.22);
+        --focus: #ff4b4b;
+        --text: #31333f;
+        --muted: #6b7280;
+        --bg: #ffffff;
+        --hover: #f3f4f6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: transparent;
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .wrap {
+        padding: 0 0 4px;
+      }
+
+      .label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0 0 0.35rem;
+      }
+
+      .input-row {
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        display: flex;
+        min-height: 2.5rem;
+        overflow: hidden;
+      }
+
+      .input-row:focus-within {
+        border-color: var(--focus);
+        box-shadow: 0 0 0 1px var(--focus);
+      }
+
+      input {
+        background: var(--bg);
+        border: 0;
+        color: var(--text);
+        flex: 1;
+        font-size: 1rem;
+        min-width: 0;
+        outline: 0;
+        padding: 0.55rem 0.75rem;
+      }
+
+      button.clear {
+        background: transparent;
+        border: 0;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 1rem;
+        height: 2.25rem;
+        padding: 0 0.65rem;
+      }
+
+      .menu {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+        margin-top: 0.3rem;
+        max-height: 18rem;
+        overflow-y: auto;
+      }
+
+      .option {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+        display: flex;
+        gap: 0.65rem;
+        padding: 0.55rem 0.65rem;
+        text-align: left;
+        width: 100%;
+      }
+
+      .option:hover,
+      .option.active {
+        background: var(--hover);
+      }
+
+      .thumb {
+        align-items: center;
+        background: #e5e7eb;
+        border-radius: 0.4rem;
+        color: #6b7280;
+        display: flex;
+        flex: 0 0 2.5rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        height: 2.5rem;
+        justify-content: center;
+        object-fit: cover;
+        overflow: hidden;
+        width: 2.5rem;
+      }
+
+      .thumb img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .copy {
+        min-width: 0;
+      }
+
+      .title {
+        font-size: 0.95rem;
+        font-weight: 650;
+        line-height: 1.22;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.2;
+        margin-top: 0.18rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .empty {
+        color: var(--muted);
+        font-size: 0.86rem;
+        padding: 0.65rem 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const Streamlit = {
+        RENDER_EVENT: "streamlit:render",
+        events: new EventTarget(),
+        lastFrameHeight: undefined,
+        send(type, data) {
+          window.parent.postMessage({ isStreamlitMessage: true, type, ...data }, "*");
+        },
+        setComponentReady() {
+          window.addEventListener("message", (event) => {
+            if (event.data && event.data.type === Streamlit.RENDER_EVENT) {
+              Streamlit.events.dispatchEvent(new CustomEvent(Streamlit.RENDER_EVENT, {
+                detail: {
+                  args: event.data.args || {},
+                  disabled: Boolean(event.data.disabled),
+                  theme: event.data.theme || {},
+                },
+              }));
+            }
+          });
+          Streamlit.send("streamlit:componentReady", { apiVersion: 1 });
+        },
+        setComponentValue(value) {
+          Streamlit.send("streamlit:setComponentValue", { value, dataType: "json" });
+        },
+        setFrameHeight(height) {
+          const nextHeight = height || document.body.scrollHeight;
+          if (nextHeight === Streamlit.lastFrameHeight) return;
+          Streamlit.lastFrameHeight = nextHeight;
+          Streamlit.send("streamlit:setFrameHeight", { height: nextHeight });
+        },
+      };
+
+      const state = {
+        activeIndex: -1,
+        args: {},
+        composing: false,
+        instanceId: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        inputValue: "",
+        loading: false,
+        menuOpen: false,
+        options: [],
+        sequence: 0,
+        waitingForClearAck: false,
+        timer: null,
+      };
+
+      function initials(label) {
+        return String(label || "?")
+          .split(/\s+/)
+          .filter(Boolean)
+          .slice(0, 2)
+          .map((part) => part[0])
+          .join("")
+          .toUpperCase();
+      }
+
+      function sendValue(interaction, value) {
+        state.sequence += 1;
+        Streamlit.setComponentValue({
+          interaction,
+          value,
+          sequence: `${state.instanceId}:${state.sequence}`,
+        });
+      }
+
+      function sendSearch(value) {
+        window.clearTimeout(state.timer);
+        state.timer = window.setTimeout(() => {
+          state.loading = Boolean(value.trim());
+          sendValue("search", value);
+        }, 260);
+      }
+
+      function selectOption(option) {
+        window.clearTimeout(state.timer);
+        sendValue("submit", option.value);
+        state.inputValue = "";
+        state.loading = false;
+        state.menuOpen = false;
+        state.activeIndex = -1;
+        state.options = [];
+        state.waitingForClearAck = true;
+        render();
+      }
+
+      function reset() {
+        window.clearTimeout(state.timer);
+        state.inputValue = "";
+        state.loading = false;
+        state.menuOpen = false;
+        state.activeIndex = -1;
+        state.options = [];
+        state.waitingForClearAck = true;
+        sendValue("reset", "");
+        render();
+      }
+
+      function clearButtonNode() {
+        const clear = document.createElement("button");
+        clear.type = "button";
+        clear.className = "clear";
+        clear.textContent = "x";
+        clear.ariaLabel = "검색어 지우기";
+        clear.addEventListener("click", reset);
+        return clear;
+      }
+
+      function isInputFocused() {
+        return document.activeElement && document.activeElement.id === "photo-searchbox-input";
+      }
+
+      function normalizeActiveIndex() {
+        if (!state.options.length) {
+          state.activeIndex = -1;
+        } else if (state.activeIndex < 0 || state.activeIndex >= state.options.length) {
+          state.activeIndex = 0;
+        }
+      }
+
+      function updateClearButton() {
+        const row = document.querySelector(".input-row");
+        if (!row) return;
+        const existing = row.querySelector("button.clear");
+        if (state.inputValue && !existing) {
+          row.appendChild(clearButtonNode());
+        } else if (!state.inputValue && existing) {
+          existing.remove();
+        }
+      }
+
+      function updateMenu() {
+        const wrap = document.querySelector(".wrap");
+        if (!wrap) return;
+        const existing = wrap.querySelector(".menu");
+        if (existing) existing.remove();
+
+        if (state.menuOpen && state.inputValue) {
+          const menu = document.createElement("div");
+          menu.className = "menu";
+          if (state.options.length) {
+            state.options.forEach((option, index) => menu.appendChild(optionNode(option, index)));
+          } else {
+            const empty = document.createElement("div");
+            empty.className = "empty";
+            empty.textContent = state.loading ? "검색 중..." : "검색 결과가 없습니다.";
+            menu.appendChild(empty);
+          }
+          wrap.appendChild(menu);
+        }
+
+        window.setTimeout(() => Streamlit.setFrameHeight(), 0);
+      }
+
+      function handleInputValue(value, shouldSearch) {
+        state.inputValue = value;
+        state.waitingForClearAck = false;
+        state.menuOpen = Boolean(value.trim());
+        state.options = [];
+        state.loading = state.menuOpen;
+        state.activeIndex = -1;
+        updateClearButton();
+        updateMenu();
+
+        if (!value.trim()) {
+          window.clearTimeout(state.timer);
+          state.loading = false;
+          state.waitingForClearAck = true;
+          sendValue("reset", "");
+          return;
+        }
+
+        if (shouldSearch) {
+          sendSearch(value);
+        }
+      }
+
+      function handleComposingValue(value) {
+        state.inputValue = value;
+        state.waitingForClearAck = false;
+        window.clearTimeout(state.timer);
+      }
+
+      function optionNode(option, index) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option" + (index === state.activeIndex ? " active" : "");
+        button.addEventListener("mousedown", (event) => event.preventDefault());
+        button.addEventListener("click", () => selectOption(option));
+
+        const thumb = document.createElement("div");
+        thumb.className = "thumb";
+        if (option.image) {
+          const img = document.createElement("img");
+          img.src = option.image;
+          img.alt = "";
+          img.loading = "lazy";
+          img.onerror = () => {
+            thumb.textContent = initials(option.label);
+          };
+          thumb.appendChild(img);
+        } else {
+          thumb.textContent = initials(option.label);
+        }
+
+        const copy = document.createElement("div");
+        copy.className = "copy";
+        const title = document.createElement("div");
+        title.className = "title";
+        title.textContent = option.label || option.value || "";
+        copy.appendChild(title);
+        if (option.subtitle) {
+          const subtitle = document.createElement("div");
+          subtitle.className = "subtitle";
+          subtitle.textContent = option.subtitle;
+          copy.appendChild(subtitle);
+        }
+
+        button.appendChild(thumb);
+        button.appendChild(copy);
+        return button;
+      }
+
+      function render({ preserveFocus = false } = {}) {
+        const root = document.getElementById("root");
+        const previousInput = document.getElementById("photo-searchbox-input");
+        const hadFocus = preserveFocus || isInputFocused();
+        const cursorPosition = previousInput ? previousInput.selectionStart : null;
+        root.replaceChildren();
+
+        const wrap = document.createElement("div");
+        wrap.className = "wrap";
+
+        if (state.args.label) {
+          const label = document.createElement("label");
+          label.className = "label";
+          label.textContent = state.args.label;
+          label.htmlFor = "photo-searchbox-input";
+          wrap.appendChild(label);
+        }
+
+        const row = document.createElement("div");
+        row.className = "input-row";
+        const input = document.createElement("input");
+        input.id = "photo-searchbox-input";
+        input.placeholder = state.args.placeholder || "";
+        input.value = state.inputValue;
+        input.addEventListener("input", (event) => {
+          if (state.composing || event.isComposing || event.inputType === "insertCompositionText") {
+            handleComposingValue(event.target.value);
+            return;
+          }
+          handleInputValue(event.target.value, true);
+        });
+        input.addEventListener("compositionstart", () => {
+          state.composing = true;
+          window.clearTimeout(state.timer);
+        });
+        input.addEventListener("compositionend", (event) => {
+          state.composing = false;
+          window.setTimeout(() => {
+            const currentInput = document.getElementById("photo-searchbox-input");
+            handleInputValue(currentInput ? currentInput.value : event.target.value, true);
+          }, 0);
+        });
+        input.addEventListener("focus", () => {
+          state.menuOpen = Boolean(state.inputValue.trim());
+          updateMenu();
+        });
+        input.addEventListener("keydown", (event) => {
+          if (state.composing || event.isComposing) return;
+          if (!state.menuOpen || !state.options.length) return;
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            state.activeIndex = Math.min(state.options.length - 1, state.activeIndex + 1);
+            updateMenu();
+          } else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            state.activeIndex = Math.max(0, state.activeIndex - 1);
+            updateMenu();
+          } else if (event.key === "Enter") {
+            event.preventDefault();
+            const option = state.options[state.activeIndex] || state.options[0];
+            if (option) selectOption(option);
+          } else if (event.key === "Escape") {
+            state.menuOpen = false;
+            render();
+          }
+        });
+
+        row.appendChild(input);
+        if (state.inputValue) {
+          row.appendChild(clearButtonNode());
+        }
+        wrap.appendChild(row);
+
+        root.appendChild(wrap);
+        updateMenu();
+        if (hadFocus) {
+          window.setTimeout(() => {
+            const nextInput = document.getElementById("photo-searchbox-input");
+            if (!nextInput) return;
+            nextInput.focus();
+            if (cursorPosition !== null && cursorPosition !== undefined) {
+              const nextPosition = Math.min(cursorPosition, nextInput.value.length);
+              nextInput.setSelectionRange(nextPosition, nextPosition);
+            }
+          }, 0);
+        }
+        window.setTimeout(() => Streamlit.setFrameHeight(), 0);
+      }
+
+      Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, (event) => {
+        state.args = event.detail.args || {};
+        const incomingSearch = state.args.searchterm || "";
+        const incomingOptions = Array.isArray(state.args.options) ? state.args.options : [];
+        const focused = isInputFocused();
+
+        if (state.composing && focused) {
+          return;
+        }
+
+        if (state.waitingForClearAck && incomingSearch) {
+          render({ preserveFocus: focused });
+          return;
+        }
+
+        if (incomingSearch === state.inputValue || !focused) {
+          state.inputValue = incomingSearch;
+          state.options = incomingOptions;
+          state.loading = false;
+          state.waitingForClearAck = false;
+        } else {
+          state.loading = Boolean(state.inputValue.trim());
+        }
+        state.menuOpen = Boolean(state.inputValue.trim());
+        normalizeActiveIndex();
+        render({ preserveFocus: focused });
+      });
+
+      Streamlit.setComponentReady();
+      render();
+    </script>
+  </body>
+</html>

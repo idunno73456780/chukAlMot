@@ -1,0 +1,103 @@
+{
+  "sports": {
+    "Football": "축구",
+    "Baseball": "야구",
+    "Basketball": "농구",
+    "Tennis": "테니스"
+  },
+  "leagues": {
+    "Premier League": "프리미어리그",
+    "FIFA World Cup": "FIFA 월드컵",
+    "KBO League": "KBO 리그",
+    "MLB": "메이저리그",
+    "UEFA Champions League": "UEFA 챔피언스리그",
+    "NBA Finals": "NBA 파이널",
+    "Wimbledon": "윔블던"
+  },
+  "teams": {
+    "Tottenham Hotspur": "토트넘 홋스퍼",
+    "Arsenal": "아스널",
+    "Chelsea": "첼시",
+    "Manchester City": "맨체스터 시티",
+    "Manchester United": "맨체스터 유나이티드",
+    "Liverpool": "리버풀",
+    "Real Madrid": "레알 마드리드",
+    "FC Barcelona": "FC 바르셀로나",
+    "Paris Saint-Germain": "파리 생제르맹",
+    "Bayern Munich": "바이에른 뮌헨",
+    "LG Twins": "LG 트윈스",
+    "Doosan Bears": "두산 베어스",
+    "KIA Tigers": "KIA 타이거즈",
+    "Samsung Lions": "삼성 라이온즈",
+    "Kiwoom Heroes": "키움 히어로즈",
+    "Los Angeles Dodgers": "로스앤젤레스 다저스",
+    "New York Yankees": "뉴욕 양키스",
+    "Boston Celtics": "보스턴 셀틱스",
+    "Denver Nuggets": "덴버 너기츠",
+    "Los Angeles Lakers": "로스앤젤레스 레이커스",
+    "Golden State Warriors": "골든스테이트 워리어스",
+    "TBD Finalist A": "결승 진출자 A",
+    "TBD Finalist B": "결승 진출자 B"
+  },
+  "players": {
+    "Son Heung-min": "손흥민",
+    "Shohei Ohtani": "오타니 쇼헤이",
+    "Aaron Judge": "애런 저지",
+    "Lionel Messi": "리오넬 메시",
+    "Kylian Mbappe": "킬리안 음바페",
+    "Erling Haaland": "엘링 홀란",
+    "Lee Kang-in": "이강인",
+    "Kim Min-jae": "김민재",
+    "Stephen Curry": "스테픈 커리",
+    "Nikola Jokic": "니콜라 요키치"
+  },
+  "national_teams": {
+    "Korea Republic": "대한민국",
+    "대한민국": "대한민국",
+    "Japan": "일본",
+    "United States": "미국",
+    "Brazil": "브라질",
+    "France": "프랑스",
+    "England": "잉글랜드",
+    "Spain": "스페인",
+    "Argentina": "아르헨티나",
+    "Germany": "독일",
+    "Portugal": "포르투갈",
+    "Netherlands": "네덜란드"
+  },
+  "venues": {
+    "Tottenham Hotspur Stadium": "토트넘 홋스퍼 스타디움",
+    "World Cup Stadium": "월드컵 경기장",
+    "Jamsil Baseball Stadium": "잠실야구장",
+    "Stamford Bridge": "스탬퍼드 브리지",
+    "Dodger Stadium": "다저 스타디움",
+    "Neutral Final Venue": "중립 결승 경기장",
+    "TD Garden": "TD 가든",
+    "Centre Court": "센터 코트",
+    "Etihad Stadium": "에티하드 스타디움"
+  },
+  "aliases": {
+    "teams": {
+      "Tottenham Hotspur": ["토트넘", "토트넘 홋스퍼", "스퍼스"],
+      "Arsenal": ["아스널", "아스날"],
+      "Chelsea": ["첼시"],
+      "Manchester City": ["맨시티", "맨체스터 시티"],
+      "Manchester United": ["맨유", "맨체스터 유나이티드"],
+      "LG Twins": ["LG 트윈스", "엘지 트윈스"],
+      "Doosan Bears": ["두산", "두산 베어스"],
+      "Kiwoom Heroes": ["키움", "키움 히어로즈"],
+      "Los Angeles Dodgers": ["다저스", "로스앤젤레스 다저스"],
+      "New York Yankees": ["양키스", "뉴욕 양키스"]
+    },
+    "players": {
+      "Son Heung-min": ["손흥민", "쏘니"],
+      "Shohei Ohtani": ["오타니", "오타니 쇼헤이"],
+      "Aaron Judge": ["애런 저지", "저지"]
+    },
+    "national_teams": {
+      "Korea Republic": ["대한민국", "한국", "대한민국 축구 국가대표팀"],
+      "Japan": ["일본", "일본 축구 국가대표팀"],
+      "United States": ["미국", "미국 축구 국가대표팀"]
+    }
+  }
+}

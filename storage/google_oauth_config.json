@@ -1,0 +1,7 @@
+{
+  "GOOGLE_OAUTH_CLIENT_ID": "45543381917-tk62pkqmbjtnum18fc2is6egvkc8sdvs.apps.googleusercontent.com",
+  "GOOGLE_OAUTH_CLIENT_SECRET": "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",
+  "GOOGLE_OAUTH_REDIRECT_URI": "http://localhost:8503/",
+  "GOOGLE_OAUTH_CALENDAR_ID": "0a40e93586548273d48bda90ecfb918dcd94bd27339280eb88d264fe986f5d95@group.calendar.google.com",
+  "GOOGLE_OAUTH_DEDICATED_CALENDAR_ID": "0a40e93586548273d48bda90ecfb918dcd94bd27339280eb88d264fe986f5d95@group.calendar.google.com"
+}

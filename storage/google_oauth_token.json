@@ -1,0 +1,15 @@
+{
+  "access_token": "ya29.a0AT3oNZ-gFCNZ-Gglgm0BYqakcLkVnY15wwBwSi-5StpBZRnMIS7yZ-RZQJ1FteNgfZUkGWWb4vtZOlLRmF_pO2mze8_n7ANpJU0c316FEkyK-p4FC58nRjDkWEWIt3L82j7xTaDgxMObY1yAYH24tUfa5BkYosPvCXyta7l-hFC3uS_0UTQFxI8Ujk5Mpj2LVrdWyDkaCgYKAbISARASFQHGX2MiWrwSCRCumQv8TClqc6IQvw0206",
+  "refresh_token": "1//0e4eFvNn_e4mXCgYIARAAGA4SNwF-L9IrzlFjoAN9l1rMYDnqeP3H6CdiSvXcazaI9iUavaOCcgvQfMUX8p_3Tiho4daa0KMHDuE",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "client_id": "45543381917-tk62pkqmbjtnum18fc2is6egvkc8sdvs.apps.googleusercontent.com",
+  "client_secret": "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",
+  "scopes": [
+    "https://www.googleapis.com/auth/calendar",
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "openid"
+  ],
+  "expiry": "2026-06-30T15:07:39.435821",
+  "user_email": "chokh310@gmail.com"
+}
